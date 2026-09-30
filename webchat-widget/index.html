@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnlyCopilotFans | Copilot Studio Agent Web Channel Direct Line Deployment</title>
+  <meta name="description" content="OnlyCopilotFans Copilot Studio assistant with a portable Direct Line web chat experience." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="icon" type="image/png" href="./images/favicon.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- ===== START: PLACEHOLDER PAGE (demo content behind the chat widget; not needed when embedding) ===== -->
+  <div class="page-bg" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice" focusable="false">
+      <defs>
+        <!-- Palette taken from the Copilot Studio icon: lime/teal, cyan/blue, violet/magenta, orange -->
+        <linearGradient id="bgAqua" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#eef9d9"></stop>
+          <stop offset="45%" stop-color="#b9ecdc"></stop>
+          <stop offset="100%" stop-color="#8fd9f2"></stop>
+        </linearGradient>
+        <linearGradient id="bgBlue" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#63c4f5"></stop>
+          <stop offset="55%" stop-color="#4b8be8"></stop>
+          <stop offset="100%" stop-color="#a24fd0"></stop>
+        </linearGradient>
+        <linearGradient id="bgMagenta" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b95be0"></stop>
+          <stop offset="100%" stop-color="#e94f9c"></stop>
+        </linearGradient>
+        <linearGradient id="bgMint" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#fbe7b0"></stop>
+          <stop offset="100%" stop-color="#f6a35c"></stop>
+        </linearGradient>
+        <linearGradient id="bgFade" gradientUnits="userSpaceOnUse" x1="900" y1="0" x2="1320" y2="0">
+          <stop offset="0%" stop-color="#fff" stop-opacity="1"></stop>
+          <stop offset="100%" stop-color="#fff" stop-opacity="0"></stop>
+        </linearGradient>
+        <pattern id="bgStripes" width="9" height="9" patternUnits="userSpaceOnUse">
+          <rect width="9" height="3.5" fill="#ffffff" opacity="0.6"></rect>
+          <rect y="6" width="9" height="1" fill="#f3e9a8" opacity="0.5"></rect>
+        </pattern>
+      </defs>
+      <path id="bgWave" d="M1000 130 C1090 50 1260 70 1300 200 C1345 340 1150 390 1180 530 C1210 665 1400 645 1420 780 C1432 850 1380 900 1380 900 L1600 900 L1600 0 L1240 0 C1140 0 1050 70 1000 130Z" fill="url(#bgAqua)" opacity="0.75"></path>
+      <use href="#bgWave" fill="url(#bgStripes)"></use>
+      <path d="M1480 230 C1560 290 1600 370 1600 370 L1600 900 L1340 900 C1450 800 1520 700 1500 560 C1485 450 1425 340 1480 230Z" fill="url(#bgBlue)" opacity="0.9"></path>
+      <path d="M1540 420 C1600 520 1590 700 1500 900 L1600 900 L1600 420Z" fill="url(#bgMagenta)" opacity="0.6"></path>
+      <path d="M1080 900 C1140 800 1300 760 1420 800 C1500 828 1560 880 1600 900Z" fill="url(#bgMint)" opacity="0.9"></path>
+      <rect x="0" width="1320" height="900" fill="url(#bgFade)" opacity="0.55"></rect>
+    </svg>
+  </div>
+
+  <div class="page-shell">
+    <header class="brand-bar">
+      <p class="brand-bar__text">
+        Designed for
+        <img class="brand-bar__icon" src="./images/copilot-studio-icon.png" alt="" />
+        <strong>Microsoft Copilot Studio</strong> agents
+      </p>
+      <p class="brand-bar__sub">Web Channel Direct Line deployment template</p>
+    </header>
+
+    <main class="intro">
+      <h1 class="intro__logo">
+        <img src="./images/onlycopilotfans-logo.png" alt="OnlyCopilotFans" width="793" height="265" />
+      </h1>
+      <p class="intro__byline">Created by <strong>AJ Ansari</strong>, Microsoft MVP</p>
+
+      <ul class="feature-list" aria-label="Highlights">
+        <li class="feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5b5fc7" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"></path><circle cx="16" cy="7" r="2"></circle><circle cx="8" cy="17" r="2"></circle></svg>
+          <span>Fully configurable</span>
+        </li>
+        <li class="feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d9642b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z"></path></svg>
+          <span>Deploy in minutes</span>
+        </li>
+        <li class="feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2a8f5c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"></path></svg>
+          <span>Free &amp; Open Source</span>
+        </li>
+      </ul>
+
+      <p class="intro__alt-link">
+        See what the basic <a href="./IframeVersion.html" target="_blank" rel="noopener">IFRAME embed Chat Widget</a> looks like.
+      </p>
+    </main>
+
+    <footer class="page-footer">
+      <span>Get the code at</span>
+      <a class="page-footer__link" href="https://github.com/ajansari/ocpfCopilotStudioWebChat" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>github.com/ajansari/ocpfCopilotStudioWebChat</span>
+      </a>
+    </footer>
+  </div>
+  <!-- ===== END: PLACEHOLDER PAGE ===== -->
+
+  <!-- ===== START: FLOATING CHAT WIDGET (expandable/collapsible) =====
+       Copy everything between the START and END markers into the target page's <body>.
+       Also required on the target page:
+         - ./styles.css  (chat-toggle, chat-panel, messages, etc.)
+         - The scripts at the bottom of this file (directline.js, marked.min.js, config.js, app.js)
+       Contains: launcher button (#chatToggle) + expandable chat panel (#chatPanel). -->
+  <button id="chatToggle" class="chat-toggle" aria-expanded="false" aria-controls="chatPanel" aria-label="Open ocpf chat">
+    <span class="chat-toggle__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" role="img" focusable="false">
+        <defs>
+          <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4A90E2"></stop>
+            <stop offset="100%" stop-color="#357ABD"></stop>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="#002244"></circle>
+        <rect x="16" y="18" width="32" height="28" rx="8" fill="url(#botGrad)"></rect>
+        <circle cx="25" cy="31" r="3" fill="#ffffff"></circle>
+        <circle cx="39" cy="31" r="3" fill="#ffffff"></circle>
+        <path d="M24 39c2.1 2.2 4.9 3.3 8 3.3s5.9-1.1 8-3.3" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"></path>
+        <rect x="28" y="12" width="8" height="6" rx="3" fill="#ffffff"></rect>
+      </svg>
+    </span>
+    <span id="chatToggleLabel">Chat with ocpf</span>
+    <svg class="chat-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+
+  <aside id="chatPanel" class="chat-panel" aria-label="ocpf chat window" hidden>
+    <header class="chat-panel__header">
+      <div class="chat-panel__title-wrap">
+        <span class="chat-panel__icon" id="chatHeaderIcon" aria-hidden="true"></span>
+        <div>
+          <h3 id="chatTitle">ocpf Assistant</h3>
+          <div class="chat-panel__status">
+            <span class="connection-dot" id="connectionDot" aria-hidden="true"></span>
+            <p id="connectionText">Connecting...</p>
+          </div>
+        </div>
+      </div>
+      <div class="chat-panel__actions">
+        <button id="chatRestart" class="chat-restart" type="button" aria-label="Start a new chat" title="Start a new chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v5h-5"></path></svg>
+        </button>
+        <button id="chatClose" class="chat-close" type="button" aria-label="Close chat">✕</button>
+      </div>
+    </header>
+
+    <div id="chatStatus" class="chat-status" role="status" aria-live="polite"></div>
+
+    <section id="messages" class="messages" aria-live="polite" aria-label="Conversation messages">
+      <div id="typingIndicator" class="typing" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <div id="suggestedActions" class="suggested-actions" aria-label="Suggested actions"></div>
+
+    <div id="attachmentList" class="attachment-list" aria-label="Files to send"></div>
+
+    <form id="messageForm" class="chat-input" autocomplete="off">
+      <label for="messageInput" class="visually-hidden">Type your message</label>
+      <input id="messageInput" name="message" type="text" placeholder="Type your message" disabled />
+      <input id="fileInput" type="file" multiple class="visually-hidden" tabindex="-1"
+             accept=".docx,.csv,.pdf,.txt,.jpg,.jpeg,.png,.webp,.gif" />
+      <button id="attachButton" type="button" aria-label="Attach a file" title="Attach a file" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.5l-8.5 8.5a5.5 5.5 0 0 1-7.8-7.8l9.2-9.2a3.5 3.5 0 0 1 5 5l-9.2 9.2a1.5 1.5 0 0 1-2.1-2.1L16 7.7"></path></svg>
+      </button>
+      <span class="chat-input__divider" aria-hidden="true"></span>
+      <button id="sendButton" type="submit" aria-label="Send message" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 4l18 8-18 8 3-8-3-8z"></path><path d="M6 12h15"></path></svg>
+      </button>
+    </form>
+  </aside>
+  <!-- ===== END: FLOATING CHAT WIDGET (expandable/collapsible) ===== -->
+
+  <!-- ===== START: CHAT WIDGET SCRIPTS (required by the floating chat widget) ===== -->
+  <script src="https://unpkg.com/botframework-directlinejs/dist/directline.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+  <!-- ===== END: CHAT WIDGET SCRIPTS ===== -->
+</body>
+</html>

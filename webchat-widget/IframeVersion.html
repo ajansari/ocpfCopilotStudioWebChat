@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copilot Studio Agent Iframe Embed</title>
+  <meta name="description" content="OnlyCopilotFans Copilot Studio assistant with a embedded Copilot Studio web chat iframe." />
+  <link rel="icon" type="image/png" href="./images/favicon.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    /* IframeVersion-only overrides */
+    .page-bg { filter: grayscale(1); }   /* background shapes in greyscale */
+    .intro--iframe { max-width: none; }
+    .intro__headline {
+      margin: 0;
+      font-size: clamp(2.5rem, 5.5vw, 6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: #242424;
+    }
+    .feature-card--wide {
+      width: calc(3 * 190px + 2 * 1rem); /* same span as the three cards on index.html */
+      max-width: 100%;
+      margin-top: 5rem;
+      text-decoration: none;
+      color: #242424;
+      cursor: pointer;
+      font-weight: 400; /* Segoe UI Regular */
+      font-size: 1.05rem;
+      border: 2px solid #34c759;
+      box-shadow:
+        0 0 0 4px rgba(52, 199, 89, 0.22),
+        0 0 18px rgba(52, 199, 89, 0.55),
+        0 8px 18px rgba(0, 0, 0, 0.07);
+    }
+    .feature-card--wide img { height: 2.5rem; width: auto; align-self: flex-start; }
+    .feature-card--wide:hover {
+      box-shadow:
+        0 0 0 4px rgba(52, 199, 89, 0.3),
+        0 0 26px rgba(52, 199, 89, 0.75),
+        0 10px 24px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== START: PLACEHOLDER PAGE (demo content behind the chat widget; not needed when embedding) ===== -->
+  <div class="page-bg" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice" focusable="false">
+      <defs>
+        <!-- Palette taken from the Copilot Studio icon: lime/teal, cyan/blue, violet/magenta, orange -->
+        <linearGradient id="bgAqua" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#eef9d9"></stop>
+          <stop offset="45%" stop-color="#b9ecdc"></stop>
+          <stop offset="100%" stop-color="#8fd9f2"></stop>
+        </linearGradient>
+        <linearGradient id="bgBlue" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#63c4f5"></stop>
+          <stop offset="55%" stop-color="#4b8be8"></stop>
+          <stop offset="100%" stop-color="#a24fd0"></stop>
+        </linearGradient>
+        <linearGradient id="bgMagenta" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b95be0"></stop>
+          <stop offset="100%" stop-color="#e94f9c"></stop>
+        </linearGradient>
+        <linearGradient id="bgMint" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#fbe7b0"></stop>
+          <stop offset="100%" stop-color="#f6a35c"></stop>
+        </linearGradient>
+        <linearGradient id="bgFade" gradientUnits="userSpaceOnUse" x1="900" y1="0" x2="1320" y2="0">
+          <stop offset="0%" stop-color="#fff" stop-opacity="1"></stop>
+          <stop offset="100%" stop-color="#fff" stop-opacity="0"></stop>
+        </linearGradient>
+        <pattern id="bgStripes" width="9" height="9" patternUnits="userSpaceOnUse">
+          <rect width="9" height="3.5" fill="#ffffff" opacity="0.6"></rect>
+          <rect y="6" width="9" height="1" fill="#f3e9a8" opacity="0.5"></rect>
+        </pattern>
+      </defs>
+      <path id="bgWave" d="M1000 130 C1090 50 1260 70 1300 200 C1345 340 1150 390 1180 530 C1210 665 1400 645 1420 780 C1432 850 1380 900 1380 900 L1600 900 L1600 0 L1240 0 C1140 0 1050 70 1000 130Z" fill="url(#bgAqua)" opacity="0.75"></path>
+      <use href="#bgWave" fill="url(#bgStripes)"></use>
+      <path d="M1480 230 C1560 290 1600 370 1600 370 L1600 900 L1340 900 C1450 800 1520 700 1500 560 C1485 450 1425 340 1480 230Z" fill="url(#bgBlue)" opacity="0.9"></path>
+      <path d="M1540 420 C1600 520 1590 700 1500 900 L1600 900 L1600 420Z" fill="url(#bgMagenta)" opacity="0.6"></path>
+      <path d="M1080 900 C1140 800 1300 760 1420 800 C1500 828 1560 880 1600 900Z" fill="url(#bgMint)" opacity="0.9"></path>
+      <rect x="0" width="1320" height="900" fill="url(#bgFade)" opacity="0.55"></rect>
+    </svg>
+  </div>
+
+  <div class="page-shell">
+    <header class="brand-bar">
+      <p class="brand-bar__text">
+        Standard
+        <img class="brand-bar__icon" src="./images/copilot-studio-icon.png" alt="" />
+        <strong>Microsoft Copilot Studio</strong> agent
+      </p>
+      <p class="brand-bar__sub">Web Channel IFRAME example</p>
+    </header>
+
+    <main class="intro intro--iframe">
+      <h1 class="intro__headline">Out-of-box<br />Web Chat<br />IFRAME Widget</h1>
+
+      <a class="feature-card feature-card--wide" href="./index.html" target="_blank" rel="noopener">
+        <img src="./images/onlycopilotfans-logo.png" alt="OnlyCopilotFans" />
+        <span>See what the OnlyCopilotFans Direct Line Chat Widget looks like...</span>
+      </a>
+    </main>
+  </div>
+  <!-- ===== END: PLACEHOLDER PAGE ===== -->
+
+  <!-- ===== START: COPILOT STUDIO IFRAME (Microsoft-hosted web chat; replaces the custom widget) =====
+       Fixed to the bottom-right corner, roughly where the floating chat window opens in index.html. -->
+  <style>
+    .cs-iframe {
+      position: fixed;
+      right: calc(1.1rem + 20px);
+      bottom: calc(1.1rem + 20px);
+      width: min(400px, calc(100vw - 1rem));
+      height: min(600px, 80vh);
+      border: 1px solid var(--border);
+      background: #fff;
+      z-index: 999;
+    }
+  </style>
+  <iframe class="cs-iframe" title="OnlyCopilotFans chat"
+          src="https://copilotstudio.microsoft.com/environments/372945e8-d0fb-eba3-8708-fcb21b6c6312/bots/cr940_testwebchatagent_8fZJxF/webchat?__version__=2&enableFileAttachment=false&cliAgent=true"
+          allow="clipboard-write">
+  </iframe>
+  <!-- ===== END: COPILOT STUDIO IFRAME ===== -->
+</body>
+</html>
