@@ -10,7 +10,11 @@
   <style>
     /* IframeVersion-only overrides */
     .page-bg { filter: grayscale(1); }   /* background shapes in greyscale */
-    .intro--iframe { max-width: none; }
+    .intro--iframe {
+      max-width: none;
+      margin-top: 0;
+      justify-content: center; /* headline + card centred in the space below the header */
+    }
     .intro__headline {
       margin: 0;
       font-size: clamp(2.5rem, 5.5vw, 6rem);
@@ -111,8 +115,9 @@
   <style>
     .cs-iframe {
       position: fixed;
-      right: calc(1.1rem + 20px);
-      bottom: calc(1.1rem + 20px);
+      right: calc(1.1rem + 40px);
+      top: 50%;
+      transform: translateY(-50%);   /* vertically centred in the viewport */
       width: min(400px, calc(100vw - 1rem));
       height: min(600px, 80vh);
       border: 1px solid var(--border);
