@@ -136,6 +136,15 @@ body {
   line-height: 0;
 }
 
+/* Logo + byline sit up to 100px lower than their layout slot; a transform keeps the
+   rest of the page (cards, link, footer) exactly where it is. The shift shrinks on
+   short windows (100px at >=900px tall, 40px at 750px, 0 at <=650px) so the byline
+   never runs into the cards. */
+.intro__logo,
+.intro__byline {
+  transform: translateY(clamp(0px, calc(100vh * 0.4 - 260px), 100px));
+}
+
 .intro__logo img {
   width: min(520px, 100%);
   height: auto;
