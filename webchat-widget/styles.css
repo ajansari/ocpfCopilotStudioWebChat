@@ -1,0 +1,235 @@
+/* styles.css - styles for the demo/placeholder page only (logo, cards, footer, background).
+   The chat widget's styles are in chat-widget.css; link that file as well on any page that
+   shows the widget. The "Segoe UI Web" font family used below is declared in chat-widget.css. */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Placeholder page (behind the chat widget) ===== */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI Web", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(ellipse at 8% 100%, rgba(226, 244, 168, 0.55), transparent 45%),
+    radial-gradient(ellipse at 40% 0%, rgba(255, 214, 170, 0.35), transparent 40%),
+    linear-gradient(100deg, #ffffff 0%, #fbfdfe 45%, #f0f7fd 100%);
+  color: #242424;
+  min-height: 100vh;
+  min-height: 100dvh; /* visible height on iPad/phone Safari, where 100vh includes the hidden toolbar and forces a scroll */
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.page-bg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.page-shell {
+  width: min(1240px, 88vw);
+  margin: 0 auto;
+  /* vertical spacing scales with window height so the page never needs to scroll */
+  padding: clamp(1.25rem, 3vh, 2.6rem) 0 clamp(1.25rem, 3.5vh, 3rem);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-bar__text {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 350;
+  font-size: 1.2rem;
+}
+
+.brand-bar__text strong {
+  font-weight: 600;
+}
+
+.brand-bar__sub {
+  margin: 0.2rem 0 0;
+  font-weight: 350; /* Segoe UI Semilight */
+  font-size: 1.05rem;
+  color: #424242;
+}
+
+.brand-bar__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.intro {
+  margin-top: clamp(1.5rem, 9vh, 9rem);
+  max-width: 700px;
+  flex: 1;                 /* fills the space down to the footer... */
+  display: flex;
+  flex-direction: column;  /* ...so the cards can centre within it */
+}
+
+.intro__logo {
+  margin: 0 0 0 -1.6rem; /* pulls the logo left so its artwork (not its transparent margin) aligns with the page content */
+  line-height: 0;
+}
+
+/* Logo + byline sit up to 100px lower than their layout slot; a transform keeps the
+   rest of the page (cards, link, footer) exactly where it is. The shift shrinks on
+   short windows (100px at >=900px tall, 40px at 750px, 0 at <=650px) so the byline
+   never runs into the cards. */
+.intro__logo,
+.intro__byline {
+  transform: translateY(clamp(0px, calc(100vh * 0.4 - 260px), 100px));
+  transform: translateY(clamp(0px, calc(100dvh * 0.4 - 260px), 100px));
+}
+
+.intro__logo img {
+  width: min(520px, 100%);
+  height: auto;
+}
+
+.intro__byline {
+  margin: 0.7rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 350;
+  color: #242424;
+}
+
+.intro__byline strong {
+  font-weight: 600;
+}
+
+.feature-list {
+  list-style: none;
+  margin: auto 0 0;        /* equal gap above (this) and below (.intro__alt-link) = midway */
+  padding: clamp(1.5rem, 5vh, 4.5rem) 0 0; /* minimum gap above, shrinks on short windows */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 190px));
+  gap: 1rem;
+}
+
+.feature-card {
+  min-height: 7rem;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem 1.1rem 1.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 8px 18px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.intro__alt-link {
+  margin: 1.5rem 0 auto;
+  padding-bottom: clamp(1.5rem, 5vh, 4.5rem); /* same minimum gap as above the cards */
+  font-weight: 350; /* Segoe UI Semilight */
+  font-size: 0.85rem; /* one step below the 0.95rem card labels */
+  color: #424242;
+}
+
+.intro__alt-link a {
+  color: #4f52b2;
+  text-decoration: none;
+  font-weight: 600; /* Segoe UI Semibold */
+}
+
+.intro__alt-link a:hover {
+  text-decoration: underline;
+}
+
+.page-footer {
+  margin-top: auto;
+  padding-top: clamp(0.75rem, 2vh, 3rem);
+  font-size: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.page-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #4f52b2;
+  text-decoration: none;
+}
+
+.page-footer__link:hover {
+  text-decoration: underline;
+}
+
+.page-footer__link svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: #242424;
+}
+
+.feature-card svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .feature-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  /* Tiles become full-width rows: icon beside the label */
+  .feature-list {
+    grid-template-columns: 1fr;
+    max-width: none;
+    gap: 0.6rem;
+  }
+
+  .page-shell .feature-card {
+    min-height: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .feature-card svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: 90vw;
+    padding-top: 1.4rem;
+    padding-bottom: 7.2rem;
+  }
+
+  .brand-bar__text {
+    font-size: 1rem;
+  }
+
+  /* The repo URL has no natural break points; let it wrap instead of widening the page */
+  .page-footer {
+    font-size: 1rem;
+  }
+
+  .page-footer__link span {
+    overflow-wrap: anywhere;
+  }
+}

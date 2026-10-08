@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnlyCopilotFans | Copilot Studio Agent Web Channel Direct Line Deployment (Interactive)</title>
+  <meta name="description" content="OnlyCopilotFans Copilot Studio assistant with a portable Direct Line web chat experience." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="icon" type="image/png" href="./images/favicon.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./chat-widget.css?v=2" />
+  <link rel="stylesheet" href="./interactive.css?v=2" />
+</head>
+<body>
+  <!-- ===== START: PLACEHOLDER PAGE (demo content behind the chat widget; not needed when embedding) ===== -->
+  <div class="page-bg" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice" focusable="false">
+      <defs>
+        <!-- Palette taken from the Copilot Studio icon: lime/teal, cyan/blue, violet/magenta, orange -->
+        <linearGradient id="bgAqua" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#eef9d9"></stop>
+          <stop offset="45%" stop-color="#b9ecdc"></stop>
+          <stop offset="100%" stop-color="#8fd9f2"></stop>
+        </linearGradient>
+        <linearGradient id="bgBlue" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#63c4f5"></stop>
+          <stop offset="55%" stop-color="#4b8be8"></stop>
+          <stop offset="100%" stop-color="#a24fd0"></stop>
+        </linearGradient>
+        <linearGradient id="bgMagenta" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b95be0"></stop>
+          <stop offset="100%" stop-color="#e94f9c"></stop>
+        </linearGradient>
+        <linearGradient id="bgMint" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#fbe7b0"></stop>
+          <stop offset="100%" stop-color="#f6a35c"></stop>
+        </linearGradient>
+        <linearGradient id="bgFade" gradientUnits="userSpaceOnUse" x1="900" y1="0" x2="1320" y2="0">
+          <stop offset="0%" stop-color="#fff" stop-opacity="1"></stop>
+          <stop offset="100%" stop-color="#fff" stop-opacity="0"></stop>
+        </linearGradient>
+        <pattern id="bgStripes" width="9" height="9" patternUnits="userSpaceOnUse">
+          <rect width="9" height="3.5" fill="#ffffff" opacity="0.6"></rect>
+          <rect y="6" width="9" height="1" fill="#f3e9a8" opacity="0.5"></rect>
+        </pattern>
+      </defs>
+      <path id="bgWave" d="M1000 130 C1090 50 1260 70 1300 200 C1345 340 1150 390 1180 530 C1210 665 1400 645 1420 780 C1432 850 1380 900 1380 900 L1600 900 L1600 0 L1240 0 C1140 0 1050 70 1000 130Z" fill="url(#bgAqua)" opacity="0.75"></path>
+      <use href="#bgWave" fill="url(#bgStripes)"></use>
+      <path d="M1480 230 C1560 290 1600 370 1600 370 L1600 900 L1340 900 C1450 800 1520 700 1500 560 C1485 450 1425 340 1480 230Z" fill="url(#bgBlue)" opacity="0.9"></path>
+      <path d="M1540 420 C1600 520 1590 700 1500 900 L1600 900 L1600 420Z" fill="url(#bgMagenta)" opacity="0.6"></path>
+      <path d="M1080 900 C1140 800 1300 760 1420 800 C1500 828 1560 880 1600 900Z" fill="url(#bgMint)" opacity="0.9"></path>
+      <rect x="0" width="1320" height="900" fill="url(#bgFade)" opacity="0.55"></rect>
+    </svg>
+  </div>
+
+  <div class="page-shell">
+    <header class="brand-bar">
+      <p class="brand-bar__text">
+        Designed for
+        <img class="brand-bar__icon" src="./images/copilot-studio-icon.png" alt="" />
+        <strong>Microsoft Copilot Studio</strong> agents
+      </p>
+      <p class="brand-bar__sub">Web Channel Direct Line deployment template</p>
+    </header>
+
+    <main class="intro">
+      <h1 class="intro__logo">
+        <img src="./images/onlycopilotfans-logo.png" alt="OnlyCopilotFans" width="793" height="265" />
+      </h1>
+      <p class="intro__byline">Created by <strong>AJ Ansari</strong>, Microsoft MVP</p>
+
+      <ul class="feature-list" aria-label="Highlights">
+        <li class="feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5b5fc7" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"></path><circle cx="16" cy="7" r="2"></circle><circle cx="8" cy="17" r="2"></circle></svg>
+          <span>Fully configurable</span>
+        </li>
+        <li class="feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d9642b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z"></path></svg>
+          <span>Deploy in minutes</span>
+        </li>
+        <li class="feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2a8f5c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"></path></svg>
+          <span>Free &amp;<br>Source Available</span>
+        </li>
+      </ul>
+
+      <!-- Opens the interactive settings drawer (index-interactive.html only) -->
+      <p class="ix-launch">
+        <button id="ixToggle" class="ix-toggle" type="button" aria-expanded="false" aria-controls="ixPanel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"></path><circle cx="16" cy="7" r="2"></circle><circle cx="8" cy="17" r="2"></circle></svg>
+          <span>Customize, Try It &amp; Get Your Package</span>
+        </button>
+      </p>
+
+      <p class="intro__alt-link">
+        See what the basic <a href="./IframeVersion.html">IFRAME embed Chat Widget</a> looks like (hint: not very pretty)
+      </p>
+    </main>
+
+    <footer class="page-footer">
+      <span>Visit the GitHub repo at</span>
+      <a class="page-footer__link" href="https://github.com/ajansari/ocpfCopilotStudioWebChat" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>github.com/ajansari/ocpfCopilotStudioWebChat</span>
+      </a>
+    </footer>
+  </div>
+  <!-- ===== END: PLACEHOLDER PAGE ===== -->
+
+  <!-- ===== START: INTERACTIVE SETTINGS DRAWER (index-interactive.html only; not part of the widget) =====
+       Lets a visitor change the widget settings from config.js and press "Try It". Nothing here
+       writes to config.js: edits live in this browser tab's session storage and are discarded by
+       "Reset to defaults" or by closing the tab. Logic in interactive.js, styles in interactive.css. -->
+  <aside id="ixPanel" class="ix-panel" aria-label="Widget settings" hidden>
+    <header class="ix-panel__header">
+      <div>
+        <h2>Try it yourself</h2>
+        <p>Change any setting below, then press <strong>Try It</strong> to rebuild the chat widget with it.
+           Every option maps to a value in <code>config.js</code>; the file itself is never changed.</p>
+        <p class="ix-panel__tip">When you are happy with the result, scroll down to
+           <a href="#ixPackage">Take it to your own site</a> to download the deployment package,
+           including a <code>config.js</code> with these settings.</p>
+      </div>
+      <button id="ixClose" class="ix-close" type="button" aria-label="Close settings">✕</button>
+    </header>
+
+    <form id="ixForm" class="ix-form" autocomplete="off">
+      <fieldset>
+        <legend>Launcher button</legend>
+        <p class="ix-intro">The launcher is the floating button in the corner that opens and closes the chat.</p>
+
+        <div class="ix-field">
+          <label for="ixLauncherStyle">Launcher style <code>launcherStyle</code></label>
+          <select id="ixLauncherStyle" name="launcherStyle">
+            <option value="full">full - icon + full label</option>
+            <option value="compact">compact - icon + short label</option>
+            <option value="icon">icon - round icon only</option>
+            <option value="fulltext">fulltext - full label, no icon</option>
+            <option value="compacttext">compacttext - short label, no icon</option>
+          </select>
+          <p id="ixStyleHelp" class="ix-help ix-help--live"></p>
+          <details class="ix-options">
+            <summary>All five styles explained</summary>
+            <dl>
+              <dt>full</dt><dd>Icon + full label. "Close chat" while open. Default.</dd>
+              <dt>compact</dt><dd>Icon + short label. "Close" while open.</dd>
+              <dt>icon</dt><dd>Round button, icon only. An X while open.</dd>
+              <dt>fulltext</dt><dd>Full label only, no icon.</dd>
+              <dt>compacttext</dt><dd>Short label only, no icon.</dd>
+            </dl>
+          </details>
+        </div>
+
+        <div class="ix-row">
+          <div class="ix-field">
+            <label for="ixLauncherLabelFull">Full label <code>launcherLabelFull</code></label>
+            <input id="ixLauncherLabelFull" name="launcherLabelFull" type="text" maxlength="40" />
+            <p class="ix-help">Used by the <strong>full</strong> and <strong>fulltext</strong> styles.</p>
+          </div>
+          <div class="ix-field">
+            <label for="ixLauncherLabelCompact">Short label <code>launcherLabelCompact</code></label>
+            <input id="ixLauncherLabelCompact" name="launcherLabelCompact" type="text" maxlength="20" />
+            <p class="ix-help">Used by the <strong>compact</strong> and <strong>compacttext</strong> styles.</p>
+          </div>
+        </div>
+
+        <div class="ix-field">
+          <label for="ixFontSizeAdjust">Font size adjustment (px) <code>fontSizeAdjust</code></label>
+          <input id="ixFontSizeAdjust" name="fontSizeAdjust" type="number" min="-8" max="8" step="1" />
+          <p class="ix-help">Added to every text size in the widget: launcher, header, messages, input and buttons. 0 is the built-in size, +2 enlarges, -2 shrinks. Recommended range -5 to +5.</p>
+        </div>
+
+        <div class="ix-field">
+          <label for="ixLauncherPosition">Pinned to <code>launcherPosition</code></label>
+          <select id="ixLauncherPosition" name="launcherPosition">
+            <option value="bottom-right">bottom-right - bottom corner (default)</option>
+            <option value="top-right">top-right - top corner</option>
+          </select>
+          <p class="ix-help">The corner the launcher sits in. The floating chat window opens above the button at the bottom, below it at the top.</p>
+        </div>
+
+        <div class="ix-row">
+          <div class="ix-field">
+            <label for="ixLauncherOffsetUp">Offset from edge (px) <code>launcherOffsetUp</code></label>
+            <input id="ixLauncherOffsetUp" name="launcherOffsetUp" type="number" min="0" max="400" step="1" />
+            <p class="ix-help">Moves the launcher and the chat window up from the bottom edge, or down from the top edge when pinned top-right.</p>
+          </div>
+          <div class="ix-field">
+            <label for="ixLauncherOffsetLeft">Offset left (px) <code>launcherOffsetLeft</code></label>
+            <input id="ixLauncherOffsetLeft" name="launcherOffsetLeft" type="number" min="0" max="400" step="1" />
+            <p class="ix-help">Moves them left from the right edge. Use both to clear a cookie banner or another button in the corner. 0 and 0 is the corner.</p>
+          </div>
+        </div>
+        <div class="ix-field">
+          <label for="ixIconFile">Icon <code>launcherIconUrl</code></label>
+          <div class="ix-icon">
+            <img id="ixIconPreview" class="ix-icon__preview" alt="Current launcher icon" width="48" height="48" />
+            <div class="ix-icon__controls">
+              <input id="ixIconFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" />
+              <button id="ixIconReset" type="button" class="ix-icon__reset">Use default icon</button>
+            </div>
+          </div>
+          <p class="ix-help">Shown on the launcher button and in the chat window title bar, inside a circle. Recommended: a square <strong>136 × 136 px</strong> PNG, JPG, WebP or SVG with the subject centred and a little padding. Any image you pick is scaled and centre-cropped to 136 × 136 here; for your own site, save the file as <code>images/chat-icon.png</code>.</p>
+          <p id="ixIconStatus" class="ix-help ix-help--live"></p>
+        </div>
+
+        <div class="ix-row">
+          <div class="ix-field">
+            <label for="ixLauncherColor">Button colour <code>launcherColor</code></label>
+            <div class="ix-color">
+              <input id="ixLauncherColor" name="launcherColor" type="color" />
+              <output id="ixLauncherColorHex" for="ixLauncherColor"></output>
+            </div>
+            <p class="ix-help">Colour of the launcher button. A darker shade for the gradient is derived automatically.</p>
+          </div>
+          <div class="ix-field">
+            <label for="ixInputBoxColor">Message box colour <code>inputBoxColor</code></label>
+            <div class="ix-color">
+              <input id="ixInputBoxColor" name="inputBoxColor" type="color" />
+              <output id="ixInputBoxColorHex" for="ixInputBoxColor"></output>
+            </div>
+            <p class="ix-help">Background of the box where the visitor types. Text stays dark, so keep it light.</p>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <fieldset>
+        <legend>Chat window layout</legend>
+        <p class="ix-intro">Where the chat window appears when the launcher is pressed: floating in the corner, docked to the right edge like Copilot in Edge or Office, or covering the browser window.</p>
+
+        <div class="ix-field">
+          <label for="ixDisplayMode">Display mode <code>displayMode</code></label>
+          <select id="ixDisplayMode" name="displayMode">
+            <option value="floating">floating - window next to the launcher</option>
+            <option value="sidecar">sidecar - docked right, full height</option>
+            <option value="fullscreen">fullscreen - covers the browser window</option>
+          </select>
+          <p id="ixModeHelp" class="ix-help ix-help--live"></p>
+        </div>
+
+        <div id="ixSidecarFields">
+          <div class="ix-row">
+            <div class="ix-field">
+              <label for="ixSidecarWidth">Sidecar width <code>sidecarWidth</code></label>
+              <input id="ixSidecarWidth" name="sidecarWidth" type="text" maxlength="12" placeholder="420" spellcheck="false" />
+              <p class="ix-help">Pixels (<strong>420</strong>) or a share of the browser window (<strong>30%</strong>).</p>
+            </div>
+            <div class="ix-field">
+              <label for="ixSidecarResizable">Resizable <code>sidecarResizable</code></label>
+              <select id="ixSidecarResizable" name="sidecarResizable">
+                <option value="true">true - drag the left edge</option>
+                <option value="false">false - fixed width</option>
+              </select>
+              <p class="ix-help">The visitor can stretch the sidecar by dragging its left edge, or focus the edge and press the arrow keys.</p>
+            </div>
+          </div>
+          <div class="ix-field">
+            <label for="ixSidecarPushPage">Push the page <code>sidecarPushPage</code></label>
+            <select id="ixSidecarPushPage" name="sidecarPushPage">
+              <option value="false">false - the sidecar lies over the page</option>
+              <option value="true">true - the page moves left to make room</option>
+            </select>
+            <p class="ix-help">Like Copilot in Edge: with <strong>true</strong> the page content shifts left so nothing is hidden behind the sidecar.</p>
+          </div>
+        </div>
+
+        <div id="ixFullscreenFields">
+          <div class="ix-row">
+            <div class="ix-field">
+              <label for="ixFullscreenWidth">Width <code>fullscreenWidth</code></label>
+              <input id="ixFullscreenWidth" name="fullscreenWidth" type="text" maxlength="12" placeholder="100%" spellcheck="false" />
+            </div>
+            <div class="ix-field">
+              <label for="ixFullscreenHeight">Height <code>fullscreenHeight</code></label>
+              <input id="ixFullscreenHeight" name="fullscreenHeight" type="text" maxlength="12" placeholder="100%" spellcheck="false" />
+            </div>
+          </div>
+          <p class="ix-help">A share of the browser window (<strong>100%</strong>) or pixels (<strong>900</strong>). Anything smaller than the window is centred over a dimmed page.</p>
+        </div>
+
+        <div class="ix-row">
+          <div class="ix-field">
+            <label for="ixCloseButton">Close (X) button <code>closeButton</code></label>
+            <select id="ixCloseButton" name="closeButton">
+              <option value="true">true - X in the title bar</option>
+              <option value="false">false - no X</option>
+            </select>
+            <p class="ix-help">With the X hidden, the launcher stays on top of the chat window so the visitor can still return to the page. Escape closes too.</p>
+          </div>
+          <div class="ix-field">
+            <label for="ixOpenOnLoad">Open on page load <code>openOnLoad</code></label>
+            <select id="ixOpenOnLoad" name="openOnLoad">
+              <option value="false">false - wait for the launcher</option>
+              <option value="true">true - open immediately</option>
+            </select>
+            <p class="ix-help">For a page dedicated to the chat: the window is already open when the page loads.</p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Text</legend>
+
+        <div class="ix-field">
+          <label for="ixChatTitle">Chat title <code>chatTitle</code></label>
+          <input id="ixChatTitle" name="chatTitle" type="text" maxlength="60" />
+          <p class="ix-help">Heading in the chat window, next to the icon. Also used as the window's accessible name for screen readers. Leave blank to use the default.</p>
+        </div>
+
+        <div class="ix-field">
+          <label for="ixInputPlaceholder">Input placeholder <code>inputPlaceholder</code></label>
+          <input id="ixInputPlaceholder" name="inputPlaceholder" type="text" maxlength="80" />
+          <p class="ix-help">Grey hint text shown in the message box before the visitor types.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Optional features</legend>
+        <p class="ix-intro">These only show or hide controls in the widget. The agent must support them too: in Copilot Studio open the agent, go to <strong>Settings &gt; Generative AI</strong>, turn on <strong>File uploads</strong> and/or <strong>Collect user reactions to agent messages</strong>, then publish the agent again.</p>
+
+        <div class="ix-field">
+          <label for="ixFileUploads">File uploads <code>fileUploads</code></label>
+          <select id="ixFileUploads" name="fileUploads">
+            <option value="true">true - show the paperclip button</option>
+            <option value="false">false - hide it</option>
+          </select>
+          <p class="ix-help">Shows a paperclip in the message box so visitors can attach files (up to 15 MB each). Hide it when the agent does not accept files.</p>
+        </div>
+
+        <div class="ix-field">
+          <label for="ixFeedbackButtons">Feedback buttons <code>feedbackButtons</code></label>
+          <select id="ixFeedbackButtons" name="feedbackButtons">
+            <option value="auto">auto - when the agent asks for feedback</option>
+            <option value="always">always - on, under every reply</option>
+            <option value="never">never - off</option>
+          </select>
+          <p class="ix-help">Thumbs up / thumbs down under agent replies, with an optional comment box. <strong>auto</strong> shows them only on replies the agent marks as accepting feedback, <strong>always</strong> turns them on for every reply, <strong>never</strong> turns them off.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Try with your own agent</legend>
+        <p class="ix-intro">Paste the Direct Line secrets of your own Copilot Studio agent to chat with it here instead of the default agent. Leave both blank to use the agent from <code>config.js</code>.</p>
+        <p class="ix-note ix-note--info"><strong>Reminder:</strong> this works only for agents that run <strong>without authentication</strong>. The widget talks to Direct Line with a secret alone, so an agent that requires users to sign in will not respond here.</p>
+        <p class="ix-note"><strong>Classic experience agents only (as of October 8, 2026).</strong> Direct Line is currently offered for <strong>classic experience agents (standard harness)</strong>. A <strong>new experience agent (GitHub Copilot harness)</strong> accepts the secret and shows <em>Online</em>, but sends no greeting and no replies, because Microsoft lists the Direct Line channel as not yet available for that harness. Use the iframe embed for those agents until Direct Line support arrives.</p>
+        <ol class="ix-steps">
+          <li>In Copilot Studio open your agent and go to <strong>Settings &gt; Security</strong>.</li>
+          <li>Open <strong>Authentication</strong> and set it to <strong>No authentication</strong>. Save.</li>
+          <li>Open <strong>Web channel security</strong> and copy <strong>Secret 1</strong>, and optionally <strong>Secret 2</strong>, into the fields below.</li>
+          <li><strong>Require secured access</strong> on that page is recommended but optional: the widget always sends a secret, so it works either way. On, the agent refuses Direct Line callers that bring no secret.</li>
+          <li>Save, <strong>publish</strong> the agent again, then press <strong>Try It</strong> here.</li>
+        </ol>
+
+        <div class="ix-field">
+          <label for="ixPrimarySecret">Primary secret <code>directLine.primarySecret</code></label>
+          <div class="ix-secret">
+            <input id="ixPrimarySecret" name="primarySecret" type="password" placeholder="Leave blank to use the default agent" spellcheck="false" />
+            <button type="button" data-reveal="ixPrimarySecret" aria-pressed="false">Show</button>
+          </div>
+          <p class="ix-help">Secret 1. Used first to request a Direct Line token for the conversation.</p>
+        </div>
+
+        <div class="ix-field">
+          <label for="ixSecondarySecret">Secondary secret <code>directLine.secondarySecret</code></label>
+          <div class="ix-secret">
+            <input id="ixSecondarySecret" name="secondarySecret" type="password" placeholder="Optional" spellcheck="false" />
+            <button type="button" data-reveal="ixSecondarySecret" aria-pressed="false">Show</button>
+          </div>
+          <p class="ix-help">Secret 2. Only tried if the primary secret is rejected, so you can rotate one secret without downtime.</p>
+        </div>
+
+        <p class="ix-note">Secrets you paste here stay in this browser tab's session storage and are never written to a file. Anyone who has a secret can talk to the agent, so use a test agent and regenerate the secret in Copilot Studio when you are done.</p>
+      </fieldset>
+
+      <div class="ix-actions">
+        <button id="ixTry" class="ix-btn ix-btn--primary" type="submit">Try It</button>
+        <button id="ixReset" class="ix-btn" type="button">Reset to defaults</button>
+      </div>
+      <p id="ixAgentBadge" class="ix-agent">Agent: default from config.js</p>
+      <p id="ixStatus" class="ix-status" role="status" aria-live="polite"></p>
+
+      <details class="ix-snippet">
+        <summary>Your settings as config.js values</summary>
+        <textarea id="ixSnippet" rows="12" readonly spellcheck="false" aria-label="Settings as config.js values"></textarea>
+        <div class="ix-snippet__bar">
+          <span>Paste these over the matching lines in your own config.js.</span>
+          <button id="ixCopy" type="button">Copy</button>
+        </div>
+      </details>
+
+      <div id="ixPackage" class="ix-package">
+        <h3>Take it to your own site</h3>
+        <p class="ix-help">Download a ready-made package built from the settings above: the widget files, a <code>config.js</code> filled in with your values, your icon, and <code>EMBED.html</code> with the code to paste into a web page, another page of your site, or WordPress. The zip is built in your browser; nothing is uploaded.</p>
+        <div class="ix-package__actions">
+          <button id="ixDownload" class="ix-btn ix-btn--primary" type="button">Download package (.zip)</button>
+          <button id="ixCopyEmbed" class="ix-btn" type="button">Copy embed code</button>
+        </div>
+        <p id="ixPackageStatus" class="ix-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </aside>
+  <!-- ===== END: INTERACTIVE SETTINGS DRAWER ===== -->
+
+  <!-- ===== START: FLOATING CHAT WIDGET (expandable/collapsible) =====
+       Copy everything between the START and END markers into the target page's <body>.
+       Also required on the target page:
+         - ./chat-widget.css  (chat-toggle, chat-panel, messages, etc.)
+         - The scripts at the bottom of this file (directline.js, marked.min.js, config.js, app.js)
+       Contains: launcher button (#chatToggle) + expandable chat panel (#chatPanel).
+       The same block serves every displayMode in config.js (floating, sidecar, fullscreen).
+       The #ocpfWidgetMount wrapper is used by interactive.js to rebuild the widget; it is not needed when embedding. -->
+  <div id="ocpfWidgetMount">
+  <button id="chatToggle" class="chat-toggle" aria-expanded="false" aria-controls="chatPanel" aria-label="Open ocpf chat">
+    <span class="chat-toggle__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" role="img" focusable="false">
+        <defs>
+          <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4A90E2"></stop>
+            <stop offset="100%" stop-color="#357ABD"></stop>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="#002244"></circle>
+        <rect x="16" y="18" width="32" height="28" rx="8" fill="url(#botGrad)"></rect>
+        <circle cx="25" cy="31" r="3" fill="#ffffff"></circle>
+        <circle cx="39" cy="31" r="3" fill="#ffffff"></circle>
+        <path d="M24 39c2.1 2.2 4.9 3.3 8 3.3s5.9-1.1 8-3.3" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"></path>
+        <rect x="28" y="12" width="8" height="6" rx="3" fill="#ffffff"></rect>
+      </svg>
+    </span>
+    <span id="chatToggleLabel">Chat with ocpf</span>
+    <svg class="chat-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+
+  <aside id="chatPanel" class="chat-panel" aria-label="ocpf chat window" hidden>
+    <header class="chat-panel__header">
+      <div class="chat-panel__title-wrap">
+        <span class="chat-panel__icon" id="chatHeaderIcon" aria-hidden="true"></span>
+        <div>
+          <h3 id="chatTitle">ocpf Assistant</h3>
+          <div class="chat-panel__status">
+            <span class="connection-dot" id="connectionDot" aria-hidden="true"></span>
+            <p id="connectionText">Connecting...</p>
+          </div>
+        </div>
+      </div>
+      <div class="chat-panel__actions">
+        <button id="chatRestart" class="chat-restart" type="button" aria-label="Start a new chat" title="Start a new chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v5h-5"></path></svg>
+        </button>
+        <button id="chatClose" class="chat-close" type="button" aria-label="Close chat">✕</button>
+      </div>
+    </header>
+
+    <div id="chatStatus" class="chat-status" role="status" aria-live="polite"></div>
+
+    <section id="messages" class="messages" aria-live="polite" aria-label="Conversation messages">
+      <div id="typingIndicator" class="typing" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <div id="suggestedActions" class="suggested-actions" aria-label="Suggested actions"></div>
+
+    <div id="attachmentList" class="attachment-list" aria-label="Files to send"></div>
+
+    <form id="messageForm" class="chat-input" autocomplete="off">
+      <label for="messageInput" class="visually-hidden">Type your message</label>
+      <input id="messageInput" name="message" type="text" placeholder="Type your message" disabled />
+      <input id="fileInput" type="file" multiple class="visually-hidden" tabindex="-1"
+             accept=".docx,.csv,.pdf,.txt,.jpg,.jpeg,.png,.webp,.gif" />
+      <button id="attachButton" type="button" aria-label="Attach a file" title="Attach a file" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.5l-8.5 8.5a5.5 5.5 0 0 1-7.8-7.8l9.2-9.2a3.5 3.5 0 0 1 5 5l-9.2 9.2a1.5 1.5 0 0 1-2.1-2.1L16 7.7"></path></svg>
+      </button>
+      <span class="chat-input__divider" aria-hidden="true"></span>
+      <button id="sendButton" type="submit" aria-label="Send message" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 4l18 8-18 8 3-8-3-8z"></path><path d="M6 12h15"></path></svg>
+      </button>
+    </form>
+  </aside>
+  </div>
+  <!-- ===== END: FLOATING CHAT WIDGET (expandable/collapsible) ===== -->
+
+  <!-- ===== START: CHAT WIDGET SCRIPTS (required by the floating chat widget) ===== -->
+  <script src="https://unpkg.com/botframework-directlinejs/dist/directline.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="./config.js?v=2"></script>
+  <script src="./interactive.js?v=2"></script>
+  <script id="ocpfAppScript" src="./app.js?v=2"></script>
+  <!-- ===== END: CHAT WIDGET SCRIPTS ===== -->
+</body>
+</html>
